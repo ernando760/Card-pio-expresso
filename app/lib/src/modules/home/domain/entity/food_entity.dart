@@ -1,10 +1,10 @@
 import 'package:core_module/core_module.dart';
 
-class ProductEntity extends Entity<String?> {
+class FoodEntity extends Entity<String?> {
   final String name;
   final String description;
   final double price;
-  const ProductEntity({
+  const FoodEntity({
     super.id,
     required this.name,
     required this.description,
