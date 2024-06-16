@@ -1,8 +1,8 @@
-import 'package:app/src/modules/home/domain/entity/product_entity.dart';
+import 'package:app/src/modules/home/domain/entity/food_entity.dart';
 
-final productsMock = List.generate(
+final foodsMock = List.generate(
     10,
-    (index) => ProductEntity(
+    (index) => FoodEntity(
         id: "$index",
         name: "name $index",
         description: "description $index",

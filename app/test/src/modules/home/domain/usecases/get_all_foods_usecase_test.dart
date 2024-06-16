@@ -1,33 +1,32 @@
-import 'package:app/src/modules/home/domain/exceptions/products_exceptions.dart';
-import 'package:app/src/modules/home/domain/usecases/get_all_products_usecase.dart';
+import 'package:app/src/modules/home/domain/exceptions/foods_exceptions.dart';
+import 'package:app/src/modules/home/domain/usecases/get_all_foods_usecase.dart';
 import 'package:core_module/core_module.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
 import '../../../../../mocks/mocks.dart';
 
-class GetAllProductsUsecaseMock extends Mock
-    implements IGetAllProductsUsecase {}
+class GetAllFoodsUsecaseMock extends Mock implements IGetAllFoodsUsecase {}
 
 void main() {
-  final IGetAllProductsUsecase usecase = GetAllProductsUsecaseMock();
+  final IGetAllFoodsUsecase usecase = GetAllFoodsUsecaseMock();
   test('Quando fazer as busca dos produtos deve retonar uma lista de produtos',
       () async {
-    when(() => usecase.call()).thenAnswer((_) async => Right(productsMock));
+    when(() => usecase.call()).thenAnswer((_) async => Right(foodsMock));
 
     final res = await usecase.call();
 
-    final products = res.fold((l) => null, (r) => r);
+    final foods = res.fold((l) => null, (r) => r);
 
-    expect(products, isNotNull);
-    expect(products?.length, productsMock.length);
+    expect(foods, isNotNull);
+    expect(foods?.length, foodsMock.length);
   });
 
   test(
       'Quando fazer as busca dos produtos deve retonar uma messagem de error => "Error ao buscar os produtos"',
       () async {
     when(() => usecase.call()).thenAnswer((_) async =>
-        Left(GetAllProductsException(message: "Error ao buscar os produtos")));
+        Left(GetAllFoodsException(message: "Error ao buscar os produtos")));
 
     final res = await usecase.call();
 
