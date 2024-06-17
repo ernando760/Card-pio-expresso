@@ -3,10 +3,12 @@ import 'package:core_module/core_module.dart';
 class FoodEntity extends Entity<String?> {
   final String name;
   final String description;
+  final String imgUrl;
   final double price;
   const FoodEntity({
     super.id,
     required this.name,
+    required this.imgUrl,
     required this.description,
     required this.price,
   });
