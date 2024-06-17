@@ -12,6 +12,7 @@ class DioService implements IHttpClient {
       CustomOption? option}) async {
     try {
       final res = await _dio.get<T>(path,
+          data: data,
           queryParameters: queryParamenters,
           options: Options(
               method: option?.method,
@@ -38,6 +39,7 @@ class DioService implements IHttpClient {
       CustomOption? option}) async {
     try {
       final res = await _dio.post<T>(path,
+          data: data,
           queryParameters: queryParamenters,
           options: Options(
               method: option?.method,
@@ -64,6 +66,7 @@ class DioService implements IHttpClient {
       CustomOption? option}) async {
     try {
       final res = await _dio.delete<T>(path,
+          data: data,
           queryParameters: queryParamenters,
           options: Options(
               method: option?.method,
@@ -90,6 +93,7 @@ class DioService implements IHttpClient {
       CustomOption? option}) async {
     try {
       final res = await _dio.put<T>(path,
+          data: data,
           queryParameters: queryParamenters,
           options: Options(
               method: option?.method,
@@ -116,6 +120,7 @@ class DioService implements IHttpClient {
       CustomOption? option}) async {
     try {
       final res = await _dio.patch<T>(path,
+          data: data,
           queryParameters: queryParamenters,
           options: Options(
               method: option?.method,
