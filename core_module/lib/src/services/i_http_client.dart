@@ -1,33 +1,33 @@
 import 'dart:async';
 
 abstract interface class IHttpClient {
-  Future<CustomResponse> get(
+  Future<CustomResponse<T>> get<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParamenters,
     CustomOption? option,
   });
-  Future<CustomResponse> post(
-    String path, {
-    Object? data,
-    Map<String, dynamic>? queryParamenters,
-    CustomOption? option,
-  });
-
-  Future<CustomResponse> put(
-    String path, {
-    Object? data,
-    Map<String, dynamic>? queryParamenters,
-    CustomOption? option,
-  });
-  Future<CustomResponse> patch(
+  Future<CustomResponse<T>> post<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParamenters,
     CustomOption? option,
   });
 
-  Future<CustomResponse> delete(
+  Future<CustomResponse<T>> put<T>(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParamenters,
+    CustomOption? option,
+  });
+  Future<CustomResponse<T>> patch<T>(
+    String path, {
+    Object? data,
+    Map<String, dynamic>? queryParamenters,
+    CustomOption? option,
+  });
+
+  Future<CustomResponse<T>> delete<T>(
     String path, {
     Object? data,
     Map<String, dynamic>? queryParamenters,
