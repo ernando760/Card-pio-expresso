@@ -36,6 +36,9 @@ jobs:
           channel: 'stable'
           cache: true
       # 12
+      - name: Get version
+        run: flutter --version
+      # 13  
       - name: Get dependencies
         run: flutter pub get
 
