@@ -18,6 +18,9 @@ jobs:
     # 6
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./app
     # 7
     steps:
       # 8
