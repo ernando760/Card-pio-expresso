@@ -5,5 +5,6 @@ final foodsMock = List.generate(
     (index) => FoodEntity(
         id: "$index",
         name: "name $index",
+        imgUrl: "imgUrl $index",
         description: "description $index",
         price: index / 100));
