@@ -1,0 +1,48 @@
+name: Flutter Test
+
+# 1
+on:
+  # 2
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # 3
+  workflow_dispatch:
+
+# 4
+jobs:
+  # 5
+  build:
+    # 6
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./app
+    # 7
+    steps:
+      # 8
+      - uses: actions/checkout@v4
+      # 9
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu'
+          java-version: "17.x"
+          cache: 'gradle'
+      # 10   
+      - uses: subosito/flutter-action@v2
+        with:
+          # 11
+          flutter-version: "3.19.2"
+          channel: 'stable'
+          cache: true
+      # 12
+    
+      - name: Get dependencies
+        run: flutter pub get
+
+      # Runs test
+      - name: Start test
+        run: flutter test
